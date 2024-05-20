@@ -1,0 +1,43 @@
+.participants-page{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 5px;
+}
+
+.participants-page_title{
+    font-family:'Poppins', sans-serif;
+    font-size: 20px;
+    color: #212529;
+    margin: 24px;
+}
+
+.participants-page_form{
+    display: flex;
+    margin: 18px;
+}
+
+.participants-page_form_search{
+    border: 1px solid #2125293a;
+    border-right: none;
+    padding: 4px;
+    border-radius: 5px 0px 0px 5px;
+}
+
+.participants-page_form_input{
+    border: 1px solid #2125293a;
+    border-left: none;
+    border-radius: 0px 5px 5px 0px;
+    font-family:'Poppins', sans-serif;
+    outline: none;
+}
+
+.participants-page_participant{
+    display: flex;
+    flex-direction: column;
+    font-family:'Poppins', sans-serif;
+    font-size: 16px;
+    color: #212529;
+    border-bottom: 1px solid #2125293a;
+    padding: 8px;
+    margin: 18px;
+}

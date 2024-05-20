@@ -1,0 +1,22 @@
+.header{
+    display: flex;
+    padding: 10px 0px 10px 80px ;
+    background-color: #212529;
+}
+
+.header__button{
+    background: none;
+    border: none;
+    border-radius: 5px;
+    font-family:'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    color: rgb(84, 145, 82);
+    transition: all .20s ease-in 0s;
+}
+
+.header__button:hover{
+    color: rgb(92, 160, 90);
+}
+

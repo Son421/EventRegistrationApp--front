@@ -1,0 +1,54 @@
+.menu{
+    display: flex;
+    flex-direction: column;
+    width: 75px;
+    margin: 14px;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+}
+
+.menu_button{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 1px solid #2125293a;
+    border-radius: 5px;
+    font-family:'Poppins', sans-serif;
+    color: #212529;
+    padding: 4px;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+}
+
+.menu_button:hover{
+    background-color: rgb(243, 243, 243);
+}
+
+.menu_button_active{
+    border-radius: 5px 5px 0px 0px;
+}
+
+.menu_option{
+    border-radius: 0px;
+    border-top: none;
+}
+
+.menu_option:focus{
+    background-color: rgb(138, 201, 136);
+    transition: all .15s ease-in 0s;
+}
+
+.menu--clouse{
+    font-size: 16px;
+    color: rgb(91, 156, 89);
+    transform: rotate(180deg);
+    transition: all .15s ease-in 0s;
+}
+
+.menu--open{
+    font-size: 16px;
+    color: rgb(91, 156, 89);
+    transform: rotate(360deg);
+    transition: all .15s ease-in 0s;
+}

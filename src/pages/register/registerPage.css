@@ -1,0 +1,141 @@
+ul{
+    list-style-type: none;
+}
+
+.register-page{
+    margin: 40px;
+    display: flex;
+    justify-content: center;
+    font-family:'Poppins', sans-serif;
+}
+
+.register-page_form{
+    display: flex;
+    flex-direction: column;
+    margin: 40px;
+    border-radius: 5px;
+    border: 1px solid #212529;
+    color: #212529;
+    min-width: 400px;
+    padding: 14px 0px;
+}
+
+.register-page_form_title{
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.register-page_form_input{
+    font-family:'Poppins', sans-serif;
+    border: none;
+    outline: none;
+    overflow: hidden;
+    background: #21252931;
+    border-radius: 10px;
+    margin: 6px 0px;
+    padding: 4px;
+    min-width: 300px;
+    width: 50%;
+    color: #212529;
+}
+
+.register-page_form_date{
+    margin: 4px 8px ;
+    display: inline-block;
+    position: relative;
+    border: none;
+    border-radius: 5px;
+    background: none;
+    outline: none;
+    color: #212529;
+    font-family:'Poppins', sans-serif;
+}
+
+.register-page_ratio__wraapper{
+    display: flex;
+    justify-content: space-around;
+}
+
+.register-page_container{
+    display: block;
+	position: relative;
+	padding-left: 15px;
+	margin-bottom: 12px;
+	cursor: pointer;
+	font-size: 16px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.register-page_ratio{
+    position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+
+.register-page_ratio_checkmark{
+    position: absolute;
+	top: 0;
+	left: 0;
+	height: 25px;
+	width: 25px;
+	background-color: #21252931;
+	border-radius: 50%;
+    transition: all .15s ease-in 0s;
+}
+
+.register-page_ratio_checkmark:hover{
+    background-color: #eeeeee;
+}
+
+.register-page_container input:checked ~ .register-page_ratio_checkmark {
+    transition: all .18s ease-in 0s;
+    background-color:  #212529;
+}
+
+.register-page_ratio_checkmark::after{
+    content: "";
+	position: absolute;
+	display: none;
+}
+
+.register-page_container input:checked ~ .register-page_ratio_checkmark:after {
+    display: block;
+}
+
+.register-page_container .register-page_ratio_checkmark:after {
+    top: 8px;
+	left: 8px;
+	width: 9px;
+	height: 9px;
+	border-radius: 50%;
+	background: #a9adb1;
+}
+
+.register-page_ratio_text{
+    padding: 20px;
+}
+
+.register-page_form_button{
+    font-family:'Poppins', sans-serif;
+    color: #212529;
+    width: 42px;
+    margin: 0px 14px;
+    display: flex;
+    align-self: flex-end;
+    padding: 4px;
+    border-radius: 5px;
+    background: #21252931;;
+    border: none;
+    cursor: pointer;
+    transition: all .15s ease-in 0s;
+}
+
+.register-page_form_button:hover{
+    background: #21252957;
+}
