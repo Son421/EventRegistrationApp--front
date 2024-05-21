@@ -6,7 +6,7 @@ import constants from '../../constants';
 const currentDate = new Date();
 
 export default function RegisterPage(){
-    const { id } = useParams();
+    const { _id } = useParams();
     const [registrationInfo, setRegistrationInfo] = useState({
         fullName: '',
         email: '',
@@ -23,7 +23,7 @@ export default function RegisterPage(){
     }
 
     function sendForm(){
-        fetch(`${constants.url}/register/${id}`, {
+        fetch(`${constants.url}/register/${_id}`, {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json',

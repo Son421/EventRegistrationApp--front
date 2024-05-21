@@ -5,7 +5,7 @@ import './participantsPage.css'
 import constants from '../../constants';
 
 export default function ParticipantsPage(){
-    const { id } = useParams();
+    const { _id } = useParams();
     const [eventTitle, setEventTitle] = useState()
     const [search, setSearch] = useState()
     const [searchField, setSearchField] = useState('fullName');
@@ -15,7 +15,7 @@ export default function ParticipantsPage(){
         fetch(`${constants.urlEvents}`)
         .then(res => res.json())
         .then(data => {
-            const event = data.find(event => event.id === id);
+            const event = data.find(event => event._id === _id);
             if(event){
                 setEventTitle(event.title); 
             }
@@ -23,8 +23,8 @@ export default function ParticipantsPage(){
         .catch(error => {
             console.error('Error:', error);
         });
-
-        fetch(`${constants.urlParticipants}/${id}`)
+        
+        fetch(`${constants.urlParticipants}/${_id}`)
         .then(res => res.json())
         .then(data => {
             setParticipants(data);
@@ -40,7 +40,7 @@ export default function ParticipantsPage(){
     }
 
     function participantSearch(){
-        fetch(`${constants.urlParticipants}/search-participant/${id}?${searchField}=${search}`)
+        fetch(`${constants.url}/search-participant/${_id}?${searchField}=${search}`)
           .then(res => res.json())
           .then(data => {
             if (data.error) {
@@ -58,7 +58,7 @@ export default function ParticipantsPage(){
         <div>
             <span className='participants-page_title'> {eventTitle} participants</span>
             <section> 
-                <form className='participants-page_form'>
+                <form className='participants-page_form' onSubmit={(e) => e.preventDefault()}>
                     <select className='participants-page_form_select' value={searchField} onChange={(e) => setSearchField(e.target.value)}>
                         <option value="fullName">Name</option>
                         <option value="email">Email</option>

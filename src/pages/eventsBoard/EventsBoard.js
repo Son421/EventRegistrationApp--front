@@ -11,7 +11,7 @@ export default function EventsBoard(){
   const fetchEvents = () => {
     let url = constants.urlEvents;
     if (sortBy) {
-        url += `?sort=${sortBy}-asc`;
+        url = `${constants.url}/search?sort=${sortBy}-asc`;
     }
     fetch(url)
     .then(res => res.json())
@@ -19,13 +19,9 @@ export default function EventsBoard(){
       setEvents(data);
     })
     .catch(error => {
-    console.error('Error:', error);
+      console.error('Error:', error);
     });
   }
-
-  useEffect(() =>{
-    fetchEvents();
-  }, []);
 
   useEffect(() => {
     fetchEvents();

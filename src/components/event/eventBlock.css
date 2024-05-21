@@ -6,6 +6,7 @@
     color: #212529;
     border-right: 1px solid #2125293a;
     border-bottom: 1px solid #2125293a;
+    width: 300px;
     padding: 8px;
     margin: 18px;
     transition: all .20s ease-in 0s;
@@ -24,7 +25,7 @@
 .event-block_title{
     font-size: 18px;
     font-weight: bold;
-    margin-top: -24px;
+    margin-top: -14px;
 }
 
 .event-block_description{

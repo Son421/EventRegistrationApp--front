@@ -6,7 +6,7 @@ import ParticipantsPage from "../pages/participants/ParticipantsPage";
 export default () => (
     <Routes>
         <Route path="/" element={<EventsBoard/>}/>
-        <Route path="/event/:id/register" element={<RegisterPage/>}/>
-        <Route path="/event/:id/participants" element={<ParticipantsPage/>}/>
+        <Route path="/event/:_id/register" element={<RegisterPage/>}/>
+        <Route path="/event/:_id/participants" element={<ParticipantsPage/>}/>
     </Routes>
 );
