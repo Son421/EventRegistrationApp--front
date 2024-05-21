@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import { TiArrowSortedUp } from "react-icons/ti";
+import { TiArrowSortedUp, TiArrowSortedDown } from "react-icons/ti";
 import './menu.css'
 
-export default function Menu(){
+export default function Menu(props){
     const [shownMenu, setShownMenu] = useState(false);
 
     function showMenu(){
@@ -10,15 +10,15 @@ export default function Menu(){
     }
 
     function sortByTitle(){
-
+        props.onSortChange('title');
     }
 
     function sortByDate(){
-
+        props.onSortChange('eventDate');
     }
 
     function sortByOrganizer(){
-
+        props.onSortChange('organizer');
     }
 
     if(!shownMenu){

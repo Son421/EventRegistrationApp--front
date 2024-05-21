@@ -31,6 +31,32 @@
     outline: none;
 }
 
+.participants-page_form_search_button{
+    font-family:'Poppins', sans-serif;
+    color: #212529;
+    width: 42px;
+    margin: 4px;
+    padding: 4px;
+    border-radius: 5px;
+    background: #21252931;;
+    border: none;
+    cursor: pointer;
+    transition: all .15s ease-in 0s;
+}
+
+.participants-page_form_select{
+    font-family:'Poppins', sans-serif;
+    color: #212529;
+    background-color: #ffffff;
+    border: 1px solid #2125293a;
+    margin: 4px 8px;
+}
+
+.participants-page_form_search_button{
+    background: #21252957;
+}
+
+
 .participants-page_participant{
     display: flex;
     flex-direction: column;

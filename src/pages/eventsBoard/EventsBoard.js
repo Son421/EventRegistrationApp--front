@@ -5,36 +5,46 @@ import './eventsBoard.css';
 import constants from '../../constants';
 
 export default function EventsBoard(){
-    const [events, setEvents]= useState([]);
+  const [events, setEvents]= useState([]);
+  const [sortBy, setSortBy] = useState('');
 
-    useEffect(() =>{
-        fetch(constants.urlEvents)
-        .then(res => {
-            if(!res.ok){
-                throw new Error('Network response error');
-            }
-            return res.json();
-        })
-        .then(data => {
-            setEvents(data);
-        })
-        .catch(error => {
-            console.log(error);
-        });
-    }, []);
-    
-    return(
-        <div>
-            <section>
-                <Menu/>
-            </section>
-            <div className='events-board'>
-                {events.map((event) =>(
-                    <EventBlock event={event} key={event.id}/>
-                ))}
-            </div>
-        </div>
-        
-    )
+  const fetchEvents = () => {
+    let url = constants.urlEvents;
+    if (sortBy) {
+        url += `?sort=${sortBy}-asc`;
+    }
+    fetch(url)
+    .then(res => res.json())
+    .then(data => {
+      setEvents(data);
+    })
+    .catch(error => {
+    console.error('Error:', error);
+    });
+  }
+
+  useEffect(() =>{
+    fetchEvents();
+  }, []);
+
+  useEffect(() => {
+    fetchEvents();
+  }, [sortBy])
+
+  const handleSortChange = (sortOption) => {
+    setSortBy(sortOption);
+  };
+  
+  return(
+    <div>
+      <section>
+        <Menu onSortChange={handleSortChange}/>
+      </section>
+      <div className='events-board'>
+        {events.map((event) =>(
+          <EventBlock event={event} key={event.id}/>
+        ))}
+      </div>
+    </div>
+  )
 }
-

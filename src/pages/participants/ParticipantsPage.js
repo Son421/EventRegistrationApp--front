@@ -6,52 +6,73 @@ import constants from '../../constants';
 
 export default function ParticipantsPage(){
     const { id } = useParams();
-    const [eventName, setEventName] = useState()
-    const [seacrh, setSearch] = useState()
+    const [eventTitle, setEventTitle] = useState()
+    const [search, setSearch] = useState()
+    const [searchField, setSearchField] = useState('fullName');
     const [participants, setParticipants] = useState([]);
 
     useEffect(() => {
-        fetch(constants.urlEvents)
-        .then( res => res.json())
+        fetch(`${constants.urlEvents}`)
+        .then(res => res.json())
         .then(data => {
             const event = data.find(event => event.id === id);
             if(event){
-                setEventName(event.title); 
+                setEventTitle(event.title); 
             }
         })
         .catch(error => {
-            console.log(error)
+            console.error('Error:', error);
         });
 
-        fetch(constants.urlParticipants)
+        fetch(`${constants.urlParticipants}/${id}`)
         .then(res => res.json())
         .then(data => {
             setParticipants(data);
         })
         .catch(error =>{
-            console.log(error)
-        })
+            console.error('Error:', error);
+        });
     }, [])
 
-    function ParticipantSeacrh(e){
+    function participantHandleChange(e){
         const value = e.target.value;
         setSearch(value);
     }
 
+    function participantSearch(){
+        fetch(`${constants.urlParticipants}/search-participant/${id}?${searchField}=${search}`)
+          .then(res => res.json())
+          .then(data => {
+            if (data.error) {
+              setParticipants([]);
+            } else {
+              setParticipants([data]);
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+    }
+
     return(
         <div>
-            <span className='participants-page_title'> {eventName} participants</span>
-            <div> 
+            <span className='participants-page_title'> {eventTitle} participants</span>
+            <section> 
                 <form className='participants-page_form'>
+                    <select className='participants-page_form_select' value={searchField} onChange={(e) => setSearchField(e.target.value)}>
+                        <option value="fullName">Name</option>
+                        <option value="email">Email</option>
+                    </select>
                     <div className='participants-page_form_search'> <IoSearch/> </div>
-                    <input type="text" onChange={ParticipantSeacrh} className='participants-page_form_input' value={seacrh} name="seacrh"></input>
+                    <input type="text" onChange={participantHandleChange} className='participants-page_form_input' value={search} name="seacrh"></input>
+                    <button onClick={participantSearch} className='participants-page_form_search_button'> Search </button>
                 </form>
-            </div>
+            </section>
             <ul className='participants-page'>
                 {participants.map((participant, index) => (
                     <div className='participants-page_participant' key={index}>
-                        <span> {participant.userName}</span>
-                        <span> {participant.userMail}</span>
+                        <span> {participant.fullName}</span>
+                        <span> {participant.email}</span>
                     </div>
                 ))}
             </ul>
