@@ -1,6 +1,9 @@
 Event Registration Application
 This project is a React application for event registration.
 
+This project has already deployed: 
+https://eventregistrationapp-front.onrender.com/
+
 Installation
 To install the necessary dependencies, run the following command:
 
